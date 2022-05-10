@@ -1,0 +1,32 @@
+import PySimpleGUI 
+
+#layout
+estados = ["AM", "RR", "RJ", "SP"]
+PySimpleGUI.theme("Reddit")
+layout = [
+    [PySimpleGUI.Text("Preencha os campos e clique em GRAVAR DADOS")],
+    [PySimpleGUI.Text("Nome"), PySimpleGUI.Input(key="nome")],
+    [PySimpleGUI.Text("Endereço"), PySimpleGUI.Input(key="endereco")],
+    [PySimpleGUI.Text("Bairro"), PySimpleGUI.Input(key="bairro")],
+    [PySimpleGUI.Text("Estado"), PySimpleGUI.Combo(estados)],
+    [PySimpleGUI.Text("Telefone"), PySimpleGUI.Input(key="telefone")],
+    [PySimpleGUI.Text("Celular"), PySimpleGUI.Input(key="celular")],
+    [PySimpleGUI.Text("E-mail"), PySimpleGUI.Input(key="email")],
+    [PySimpleGUI.Button("Gravar Cadastro"), PySimpleGUI.Button("Novo Cadastro"), PySimpleGUI.Button("Ver Cadastro")]
+]
+
+#janela
+
+janela = PySimpleGUI.Window("Cadastro de Clientes", layout)
+while True:
+    eventos, valores = janela.read()
+    if eventos == PySimpleGUI.WINDOW_CLOSED:
+        break
+    if eventos == "Gravar Cadastro":
+        PySimpleGUI.Popup("Ok, gravando informações!")
+                
+    elif eventos == "Novo Cadastro":
+        PySimpleGUI.Popup("Ok, gerando novo cadastro!")
+            
+    elif eventos == "Ver Cadastro":
+        PySimpleGUI.Popup("Ok, vamos te redirecionar para tela de informações de usuário!")
